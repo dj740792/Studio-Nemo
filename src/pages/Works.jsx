@@ -3,33 +3,34 @@ import WorksBtn from "../components/WorksBtn";
 import { useState } from "react";
 
 const worksData = [
-  {
+ {
     id: 1,
+    title: "La Bicicleta",
     img: "/WorksSrc/work1.jpg",
     video: "/WorksSrc/workVid1.mp4",
-    title: "Work 01",
-    type: "Film",
+
+    type: "Music Video",
   },
   {
     id: 2,
+    title: "Nightlife in Chongqing",
     img: "/WorksSrc/Work2.png",
     video: "/WorksSrc/workVid2.mp4",
-    title: "Work 02",
-    type: "Film",
+    type: "Documentary",
   },
   {
     id: 3,
+    title: "Cindy Era tour",
     img: "/WorksSrc/work3.png",
     video: "/WorksSrc/workVid3.mp4",
-    title: "Work 03",
-    type: "Film",
+    type: "Music Video",
   },
   {
     id: 4,
+    title: "Great Ideas",
     img: "/WorksSrc/work4.jpg",
     video: "/WorksSrc/workVid4.mp4",
-    title: "Work 04",
-    type: "Film",
+    type: "Short film",
   },
 ];
 
@@ -127,21 +128,27 @@ const WorkCard = ({ work }) => {
         </AnimatePresence>
       </motion.div>
 
-      <motion.div
-        variants={infoVariants}
-        initial="hidden"
-        animate={active ? "visible" : "hidden"}
-        className="flex w-full mt-3 justify-between"
-      >
-        <h2 className="text-base md:text-lg uppercase flex gap-3">
-          <span>✦</span>
-          {work.title}
-        </h2>
+      {(work.title || work.type) && (
+        <motion.div
+          variants={infoVariants}
+          initial="hidden"
+          animate={active ? "visible" : "hidden"}
+          className="flex w-full mt-3 justify-between"
+        >
+          {work.title && (
+            <h2 className="text-base md:text-lg uppercase flex gap-3">
+              <span>✦</span>
+              {work.title}
+            </h2>
+          )}
 
-        <p className="font-Clash-light md:text-lg tracking-tight">
-          {work.type}
-        </p>
-      </motion.div>
+          {work.type && (
+            <p className="font-Clash-light md:text-lg tracking-tight">
+              {work.type}
+            </p>
+          )}
+        </motion.div>
+      )}
     </div>
   );
 };

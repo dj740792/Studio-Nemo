@@ -14,7 +14,7 @@ const slider2 = [
 ];
 const BrandCarousel = () => {
   return (
-    <section className="py-28 overflow-hidden">
+    <section className="px-4 py-28 overflow-hidden">
       <div className="md:px-8 lg:px-10 flex items-start flex-col  mb-20">
         <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
           Trusted

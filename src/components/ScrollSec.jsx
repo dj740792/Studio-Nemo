@@ -1,9 +1,11 @@
+
+"use client";
+
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const ScrollSec = () => {
   const ref = useRef(null);
-
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -19,26 +21,33 @@ const ScrollSec = () => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end end"],
   });
 
   const width = useTransform(
     scrollYProgress,
-    [0, 0.5],
-    isMobile ? ["60vw", "80vw"] : ["27vw", "90vw"],
+    [0, 1],
+    isMobile ? ["60vw", "100vw"] : ["27vw", "90vw"]
   );
 
   const height = useTransform(
     scrollYProgress,
-    [0, 0.5],
-    isMobile ? ["48svh", "84svh"] : ["40vh", "90vh"],
+    [0, 1],
+    isMobile ? ["48svh", "90svh"] : ["40vh", "90vh"]
   );
 
-  const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["8px", "8px"]);
+  const borderRadius = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["8px", "0px"]
+  );
 
   return (
-    <section ref={ref} className="relative h-[170vh] md:h-[200vh]">
-      <div className="sticky top-3 md:top-10 h-[calc(100svh-0.75rem)] md:h-screen flex items-start justify-center overflow-hidden">
+    <section
+      ref={ref}
+      className="relative h-[200svh] w-full"
+    >
+      <div className="sticky top-0 flex h-svh w-full items-center justify-center overflow-hidden">
         <motion.div
           className="relative overflow-hidden"
           style={{
@@ -53,7 +62,8 @@ const ScrollSec = () => {
             muted
             loop
             playsInline
-            className="w-full h-full object-cover"
+            preload="auto"
+            className="h-full w-full object-cover"
           />
         </motion.div>
       </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaBtn from "./NavbarBtn";
 
@@ -23,11 +22,20 @@ const Navbar = () => {
 
   return (
     <nav className="absolute top-0 left-0 z-50 w-full px-4 md:px-8 lg:px-10 py-6">
-      <div className="flex items-center justify-between  lg:hidden md:hidden">
+      <div className="flex items-start justify-between md:hidden">
+        <ul className="flex flex-col items-start gap-2 uppercase text-sm font-Satoshi-black sm:text-base">
+          {navLinks.map((link) => (
+            <li key={link.id} className="cursor-pointer">
+              <FlipLink onClick={() => scrollToSection(link.id)}>
+                {link.name}
+              </FlipLink>
+            </li>
+          ))}
+        </ul>
         <CtaBtn text="Let's Connect" />
       </div>
 
-      <div className="hidden  md:flex lg:flex justify-between items-start">
+      <div className="hidden md:flex justify-between items-start">
         <div className="font-Satoshi-black text-2xl md:text-lg 2xl:text-3xl uppercase cursor-pointer">
           NEMO.
         </div>
@@ -50,11 +58,12 @@ const Navbar = () => {
 
 const FlipLink = ({ children, onClick }) => {
   return (
-    <motion.div
+    <motion.button
+      type="button"
       initial="initial"
       whileHover="hovered"
       onClick={onClick}
-      className="relative block overflow-hidden whitespace-nowrap"
+      className="relative block cursor-pointer overflow-hidden whitespace-nowrap bg-transparent p-0 text-inherit"
       style={{ lineHeight: 0.9 }}
     >
       <motion.div
@@ -83,7 +92,7 @@ const FlipLink = ({ children, onClick }) => {
       >
         {children}
       </motion.div>
-    </motion.div>
+    </motion.button>
   );
 };
 

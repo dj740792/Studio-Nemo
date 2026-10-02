@@ -39,7 +39,7 @@ const Hero = () => {
   const logo = "NEMO";
 
   return (
-    <section className="min-h-screen px-4 md:px-8 lg:px-12 pt-55 md:pt-60 lg:pt-55 2xl:pt-52 flex flex-col ">
+    <section className="min-h-screen px-4 md:px-8 lg:px-12 pt-44 md:pt-60 lg:pt-55 2xl:pt-52 flex flex-col ">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -55,7 +55,7 @@ const Hero = () => {
                 <motion.p
                   variants={itemVariants}
                   className="
-                    text-xl
+                    text-3xl
                     md:text-xl
                     lg:text-2xl
                     2xl:text-3xl
@@ -73,7 +73,7 @@ const Hero = () => {
             <motion.p
               variants={itemVariants}
               className="
-                text-md
+                text-lg
                 md:text-base
                 lg:text-lg
                 2xl:text-2xl
