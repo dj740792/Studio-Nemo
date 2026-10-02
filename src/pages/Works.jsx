@@ -1,11 +1,37 @@
-import {
-  AnimatePresence,
-  initPrefersReducedMotion,
-  motion,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import WorksBtn from "../components/WorksBtn";
 import { useState } from "react";
-import { TextInitial } from "lucide-react";
+
+const worksData = [
+  {
+    id: 1,
+    img: "/WorksSrc/work1.jpg",
+    video: "/WorksSrc/workVid1.mp4",
+    title: "Work 01",
+    type: "Film",
+  },
+  {
+    id: 2,
+    img: "/WorksSrc/Work2.png",
+    video: "/WorksSrc/workVid2.mp4",
+    title: "Work 02",
+    type: "Film",
+  },
+  {
+    id: 3,
+    img: "/WorksSrc/work3.png",
+    video: "/WorksSrc/workVid3.mp4",
+    title: "Work 03",
+    type: "Film",
+  },
+  {
+    id: 4,
+    img: "/WorksSrc/work4.jpg",
+    video: "/WorksSrc/workVid4.mp4",
+    title: "Work 04",
+    type: "Film",
+  },
+];
 
 const wordVariants = {
   hidden: { y: "105%", opacity: 0 },
@@ -39,38 +65,6 @@ const containerVariants = {
     },
   },
 };
-
-const worksData = [
-  {
-    id: "01",
-    title: "La Bicicleta",
-    img: "/WorksSrc/work1.jpg",
-    video: "/WorksSrc/workVid1.mp4",
-
-    type: "Music Video",
-  },
-  {
-    id: "02",
-    title: "Nightlife in Chongqing",
-    img: "/WorksSrc/Work2.png",
-    video: "/WorksSrc/workVid2.mp4",
-    type: "Documentary",
-  },
-  {
-    id: "03",
-    title: "Cindy Era tour",
-    img: "/WorksSrc/work3.png",
-    video: "/WorksSrc/workVid3.mp4",
-    type: "Music Video",
-  },
-  {
-    id: "04",
-    title: "Great Ideas",
-    img: "/WorksSrc/work4.jpg",
-    video: "/WorksSrc/workVid4.mp4",
-    type: "Short film",
-  },
-];
 
 const WorkCard = ({ work }) => {
   const [isHovered, setIsHovered] = useState(false);

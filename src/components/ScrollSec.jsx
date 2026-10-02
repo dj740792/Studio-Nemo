@@ -25,31 +25,20 @@ const ScrollSec = () => {
   const width = useTransform(
     scrollYProgress,
     [0, 0.5],
-    isMobile
-      ? ["60vw", "80vw"]
-      : ["27vw", "90vw"]
+    isMobile ? ["60vw", "80vw"] : ["27vw", "90vw"],
   );
 
   const height = useTransform(
     scrollYProgress,
     [0, 0.5],
-    isMobile
-      ? ["55vh", "90vh"]
-      : ["40vh", "90vh"]
+    isMobile ? ["48svh", "84svh"] : ["40vh", "90vh"],
   );
 
-  const borderRadius = useTransform(
-    scrollYProgress,
-    [0, 0.4],
-    ["8px", "8px"]
-  );
+  const borderRadius = useTransform(scrollYProgress, [0, 0.4], ["8px", "8px"]);
 
   return (
-    <section
-      ref={ref}
-      className="relative h-[170vh] md:h-[200vh]"
-    >
-      <div className="sticky top-6 md:top-10 h-screen flex items-start justify-center overflow-hidden">
+    <section ref={ref} className="relative h-[170vh] md:h-[200vh]">
+      <div className="sticky top-3 md:top-10 h-[calc(100svh-0.75rem)] md:h-screen flex items-start justify-center overflow-hidden">
         <motion.div
           className="relative overflow-hidden"
           style={{

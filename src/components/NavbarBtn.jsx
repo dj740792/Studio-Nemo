@@ -6,13 +6,13 @@ const NavButton = ({ text = "Tell us your story" }) => {
     <motion.button
       initial="initial"
       whileHover="hovered"
-      className="flex items-center bg-black text-[#f8f8ef] font-Clash-light rounded-full scale-75 sm:scale-100"
+      className="flex items-center bg-black text-[#f8f8ef] font-Clash-light rounded-full scale-75 sm:scale-100 cursor-pointer"
     >
       
 
       <div className="px-6 py-5 overflow-hidden">
         <div
-          className="relative block overflow-hidden whitespace-nowrap"
+          className="relative block overflow-hidden whitespace-nowrap "
           style={{ lineHeight: 0.9 }}
         >
           <motion.div
